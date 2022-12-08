@@ -1,7 +1,24 @@
 import React from 'react'
 import { BreadcrumbTop } from '../../components/user/BreadcrumbTop'
+import { GoogleAuthProvider,signInWithPopup} from "firebase/auth";
+import { auth } from '../../auth/firebase';
 
 export const Signup = () => {
+
+  const googleSignUp = ()=>{
+    var provider = new GoogleAuthProvider();
+    console.log("Clicked")
+    signInWithPopup(auth,provider).then((result)=>{
+      // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    console.log(token)
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user)
+    }).catch((err)=>{console.log(err)})
+  }
+
   return (
     <div>
         {/* <div className="preloader">
@@ -28,7 +45,7 @@ export const Signup = () => {
               </div>
             </div>
             <div className="reg-body">
-              <form>
+              <form onSubmit={(e)=>{e.preventDefault()}}>
                 <div className="row">
                   <div className="col-xl-6 col-lg-6 col-md-6">
                     <h4 className="sub-title">Personal Information</h4>
@@ -103,10 +120,9 @@ export const Signup = () => {
                 </div>
                 <div className="row text-center">
                   <div className="col-12 col-lg-6 my-1 my-lg-0">
-                    <a
+                    <button
+                      onClick={googleSignUp}
                       className="btn btn-outline-dark w-100 px-4 py-3"
-                      href="/users/googleauth"
-                      role="button"
                       style={{textTransform: "none", width: "230px"}}
                     >
                       <img
@@ -115,22 +131,20 @@ export const Signup = () => {
                         alt="Google sign-in"
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
                       />
-                      Login with Google
-                    </a>
+                      SignUp with Google
+                    </button>
                   </div>
                   <div className="col-12 col-lg-6 my-1 my-lg-0">
-                    <a
+                    <button
                       className="btn px-3 py-3 w-100"
                       style={{backgroundColor: "#1877f2", color: "white", textTransform: "none"}}
-                      href="#"
-                      role="button"
                     >
                       <i
                         className="fa-brands fa-lg fa-facebook"
                         style={{color: "white"}}
                       ></i>
-                      <span className="px-2">Login with Facebook</span>
-                    </a>
+                      <span className="px-2">SignUp with Facebook</span>
+                    </button>
                   </div>
                 </div>
               </form>

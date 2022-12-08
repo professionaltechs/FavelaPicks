@@ -5,6 +5,7 @@ import ballInStadium from '../../assets/img/footbal_in_stadium.jpg'
 import messiPROFILE from '../../assets/img/testimonial/Lionel_Messi.jpg'
 import neymarPROFILE from '../../assets/img/testimonial/Neymar_Jr.jpg'
 import ronaldoPROFILE from '../../assets/img/testimonial/Cristiano_Ronaldo.jpg'
+import NBA from '../../assets/img/nba.png'
 
 import rightArrow from '../../assets/img/icon/right-arrow.png'
 import houseFullStadium from '../../assets/img/housefull_stadium.jpg'
@@ -52,14 +53,12 @@ export const Home = () => {
         <div className="row justify-content-center">
           <div className="col-xl-9 col-lg-10 col-md-9">
             <div className="banner-content">
-              <h4 className="subtitle">Get probable winning tips from $1</h4>
-              <h1>Platform for sports prediction tipsters</h1>
+              <h4 className="subtitle">QUANTUM COMPUTING SPORTS DATA WITH MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE</h4>
+              <h1>HIGH PRECISION SPORTS PICKS</h1>
               <p>
-                Get probable winning tips from professional betting tipsters
-                across all sports<br />
-                and offers from leading bookmakers!
+              Get Artifical Intelligence to make the winning decision for you!
               </p>
-              <a href="#" className="banner-btn"> Find Your Tips </a>
+              <a href="#" className="banner-btn"> Join Now </a>
             </div>
           </div>
           <div
@@ -71,35 +70,38 @@ export const Home = () => {
     </div>
     {/* <!-- banner end --> */}
 
-    {/* <!-- how it works begin --> */}
-    <div className="how-it-works">
-      <div className="container" style={{width: "100%"}}>
-        <div className="row justify-content-center">
-          <div className="col-xl-8 col-lg-9 col-md-10">
-            <div className="section-title">
-              <h4 className="sub-title">Sports</h4>
-              <h2>from NBA ESPN</h2>
-              <p>
-                Get probable winning tips from professional betting tipsters
-                across all sports<br />
-                and offers from leading bookmakers! See how it works!
-              </p>
+    <div className="about">
+        <div className="container">
+          <div className="row justify-content-xl-between justify-content-lg-between justify-content-md-center">
+            <div className="col-xl-6 col-lg-7 col-md-9">
+              <div className="part-text">
+                <h4 className="subtitle">Know About Us</h4>
+                <h2>Learn and Become Smarter Everyday.</h2>
+                <p>
+                  A sports betting tool developed by an NASA Scientist that uses
+                  cutting edge machine learning and artificial intelligence
+                  software to help you predict sports betting outcomes. All
+                  partnerships inquiries are welcome.
+                </p>
+                <p></p>
+                <a href="#0" className="learn-more-btn">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+            <div className="col-xl-5 col-lg-5">
+              <div className="part-img">
+                <img
+                  style={{objectFit: "cover"}}
+                  src={NBA}
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
-          {/* <!-- <iframe
-            width="100%"
-            height="440"
-            src="https://rss.app/embed/v1/carousel/tws8VcDCf1Mkp5or"
-            frameborder="0"></iframe> --> */}
-        </div>
       </div>
-    </div>
-    {/* <!-- how it works end --> */}
-
-    {/* <!-- about begin --> */}
-    <div className="about">
+    {/* <div className="about">
       <div className="container">
         <div
           className="row justify-content-xl-between justify-content-lg-between justify-content-md-center"
@@ -129,8 +131,32 @@ export const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
     {/* <!-- about end -->? */}
+
+    <div className='border'>
+      <div className='container'>
+        <h1>Why Favela Bets Artificial Intelligence?</h1>
+        <p>Unlike other picks services based on the gut instinct of some handicapper, Favela Bets Artificial Intelligence generates picks that are rooted in Artificial Intelligence with Quantum Computing</p>
+        <div style={{display: "flex"}}>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1", padding: "0 7px"}}>
+            <div><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
+            <h2 style={{textAlign: "center"}}>Powered by AI</h2>
+            <p style={{textAlign: "center"}}>Favela Bets Artificial Intelligence uses our own custom AI technology to harness the knowledge, injuries, and scoial media insight in real-time, generating predictions that have been shown to outperform other industry leading prediction sites.</p>
+          </div>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1", padding: "0 7px"}}>
+            <div><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
+            <h2  style={{textAlign: "center"}}>Rooted in Machine Learning</h2>
+            <p style={{textAlign: "center"}}>Rooted in the Technical principle of Polynomial Regression , our machine learning models connect to networked databases called “Clusters” that think together as a system, creating an AI-powered “Super Intelligence” that outperforms not only in speed but also accuracy. Favela Bets believes in data theory and collects and stores all data related to each sport model. </p>
+          </div>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1", padding: "0 7px"}}>
+            <div><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
+            <h2  style={{textAlign: "center"}}>Clear & Transparent</h2>
+            <p style={{textAlign: "center"}}>Favela Bets Artificial Intelligence data visualizations give clarity and transparency. This sample Heat Map shows the result of a prediction of a single game, picking Miami Heat's player Tyler Herro to drop 18-22 points.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     {/* <!-- leaderboard begin  --> */}
     <div className="leaderboard">
@@ -156,7 +182,7 @@ export const Home = () => {
                   <table className="table">
                     <thead>
                       <tr>
-                        <th scope="col">Rank</th>
+                        <th scope="col">Sport</th>
                         <th scope="col">Players</th>
                         <th scope="col">Name</th>
                         <th scope="col"></th>
@@ -165,7 +191,91 @@ export const Home = () => {
                     <tbody>
                       <tr>
                         <th scope="row">
-                          1<span className="rank-number"> st</span>
+                          NBA
+                        </th>
+                        <td>
+                          <a href="#0" className="tipster-pic">
+                            <img
+                              src={messiPROFILE}
+                              alt=""
+                            />
+                          </a>
+                        </td>
+                        <td>
+                          <span className="profit"> Luka Dončić </span>
+                        </td>
+                        <td>
+                          <a href="playerGallery.html" className="buy-tips-btn">
+                            Get Predictions Now
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          NCAA Basketball
+                        </th>
+                        <td>
+                          <a href="#0" className="tipster-pic">
+                            <img
+                              src={messiPROFILE}
+                              alt=""
+                            />
+                          </a>
+                        </td>
+                        <td>
+                          <span className="profit"> Caleb Love </span>
+                        </td>
+                        <td>
+                          <a href="playerGallery.html" className="buy-tips-btn">
+                            Get Predictions Now
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          College Football
+                        </th>
+                        <td>
+                          <a href="#0" className="tipster-pic">
+                            <img
+                              src={messiPROFILE}
+                              alt=""
+                            />
+                          </a>
+                        </td>
+                        <td>
+                          <span className="profit"> Jahmyr Gibbs </span>
+                        </td>
+                        <td>
+                          <a href="playerGallery.html" className="buy-tips-btn">
+                            Get Predictions Now
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          NFL
+                        </th>
+                        <td>
+                          <a href="#0" className="tipster-pic">
+                            <img
+                              src={messiPROFILE}
+                              alt=""
+                            />
+                          </a>
+                        </td>
+                        <td>
+                          <span className="profit"> Patrick Mahomes </span>
+                        </td>
+                        <td>
+                          <a href="playerGallery.html" className="buy-tips-btn">
+                            Get Predictions Now
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Futbol
                         </th>
                         <td>
                           <a href="#0" className="tipster-pic">
@@ -180,91 +290,7 @@ export const Home = () => {
                         </td>
                         <td>
                           <a href="playerGallery.html" className="buy-tips-btn">
-                            View Gallery
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          2<span className="rank-number"> nd</span>
-                        </th>
-                        <td>
-                          <a href="#0" className="tipster-pic">
-                            <img
-                              src={messiPROFILE}
-                              alt=""
-                            />
-                          </a>
-                        </td>
-                        <td>
-                          <span className="profit"> Cristiano Ronaldo </span>
-                        </td>
-                        <td>
-                          <a href="playerGallery.html" className="buy-tips-btn">
-                            View Gallery
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          3<span className="rank-number"> rd</span>
-                        </th>
-                        <td>
-                          <a href="#0" className="tipster-pic">
-                            <img
-                              src={messiPROFILE}
-                              alt=""
-                            />
-                          </a>
-                        </td>
-                        <td>
-                          <span className="profit"> Muhammad Salah </span>
-                        </td>
-                        <td>
-                          <a href="playerGallery.html" className="buy-tips-btn">
-                            View Gallery
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          4<span className="rank-number"> th</span>
-                        </th>
-                        <td>
-                          <a href="#0" className="tipster-pic">
-                            <img
-                              src={messiPROFILE}
-                              alt=""
-                            />
-                          </a>
-                        </td>
-                        <td>
-                          <span className="profit"> Benzema </span>
-                        </td>
-                        <td>
-                          <a href="playerGallery.html" className="buy-tips-btn">
-                            View Gallery
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          5<span className="rank-number"> th</span>
-                        </th>
-                        <td>
-                          <a href="#0" className="tipster-pic">
-                            <img
-                              src={messiPROFILE}
-                              alt=""
-                            />
-                          </a>
-                        </td>
-                        <td>
-                          <span className="profit"> Neymar </span>
-                        </td>
-                        <td>
-                          <a href="playerGallery.html" className="buy-tips-btn">
-                            View Gallery
+                            Get Predictions Now
                           </a>
                         </td>
                       </tr>

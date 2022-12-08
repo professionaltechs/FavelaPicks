@@ -21,7 +21,7 @@ export const NavBar = () => {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-4 d-flex align-items-end ">
                 <li className="nav-item dropdown ms-3">
                   <a style={{fontSize: "0.8rem", fontWeight: "700", color: "white"}} className="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    FAVELABETS
+                    Today's Picks
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><Link className="dropdown-item" to="/NBA">NBA Picks</Link></li>

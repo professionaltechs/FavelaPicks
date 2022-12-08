@@ -17,18 +17,19 @@ export const NewsContainer = ({categorry, rssLINK}) => {
   const [items, setItems] = useState([]);
   const getData = async () => {
     let rss = await parse(rssLINK);
-    setItems(prevStat => {
-      return rss.items.map((element => {
-        const desObject = {
-          img: stripImgHtml(element?.description),
-          text: stripHtml(element?.description)
-        }
-        return {
-          ...element,
-          description: desObject
-        }
-      }))
-    })
+    setItems(rss.items)
+    // setItems(prevStat => {
+    //   return rss.items.map((element => {
+    //     const desObject = {
+    //       img: stripImgHtml(element?.description),
+    //       text: stripHtml(element?.description)
+    //     }
+    //     return {
+    //       ...element,
+    //       description: desObject
+    //     }
+    //   }))
+    // })
   }
   useEffect(() => {
     getData();

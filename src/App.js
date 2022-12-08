@@ -21,6 +21,7 @@ import { NCAAB } from './pages/user/NCAAB';
 import { NFL } from './pages/user/NFL';
 import { PlayerGallery } from './pages/user/PlayerGallery';
 import Delete from './components/user/Delete';
+import { HomeDelete } from './pages/user/HomeDelete';
 
 function App() {
   return (

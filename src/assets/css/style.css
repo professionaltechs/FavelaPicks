@@ -126,14 +126,16 @@ p {
 
 a {
   color: #283659;
-  text-decoration: none;
+  text-decoration: underline;
 }
-
+.container{
+  max-width: 1300px;
+}
 a,
 a:hover,
 a:focus,
 a:active {
-  text-decoration: none;
+  /* text-decoration: none; */
   outline: none;
 }
 
@@ -513,7 +515,10 @@ ul {
   height: 50%;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 767px){
+  .newsTop{
+    height: 750px;
+  }
   .newsTop .newsTopLeft{
     height: 33.33%;
   }

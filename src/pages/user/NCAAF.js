@@ -8,7 +8,7 @@ export const NCAAF = () => {
   return (
     <div>
         <BreadcrumbTop title="Find your tipster"/>
-        <NewsContainer  categorry="NCAAF" rssLINK='https://rss.app/feeds/tws8VcDCf1Mkp5or.xml'/>
+        <NewsContainer  categorry="NCAAF" rssLINK='https://rss.app/feeds/v2xjjJ8dzo9aLoZY.xml'/>
         <StatsTable/>
         <LeadershipTable/>
         <div style={{height: "60px"}}></div>

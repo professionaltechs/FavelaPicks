@@ -8,7 +8,7 @@ export const NFL = () => {
   return (
     <div>
         <BreadcrumbTop title="Find your tipster"/>
-        <NewsContainer categorry="NFL" rssLINK='https://rss.app/feeds/tws8VcDCf1Mkp5or.xml'/>
+        <NewsContainer categorry="NFL" rssLINK='https://rss.app/feeds/lFD67n3EUXLSQlIn.xml'/>
         <StatsTable/>
         <LeadershipTable/>
 

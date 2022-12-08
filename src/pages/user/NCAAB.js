@@ -8,10 +8,9 @@ export const NCAAB = () => {
   return (
     <div>
         <BreadcrumbTop title="Find your tipster"/>
-        <NewsContainer categorry="NCAAB" rssLINK='https://rss.app/feeds/tws8VcDCf1Mkp5or.xml'/>
+        <NewsContainer categorry="NCAAB" rssLINK='https://rss.app/feeds/7V0qurGEk8FrWCPQ.xml'/>
         <StatsTable/>
         <LeadershipTable/>
-
         <div style={{height: "60px"}}></div>
     </div>
   )
