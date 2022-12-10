@@ -6,11 +6,7 @@ import houseFullStadium from '../../assets/img/housefull_stadium.jpg'
 import {FaChartPie, FaChartBar, FaUserAlt, FaFootballBall, FaRegEnvelope, FaRegLightbulb, FaLightbulb, FaRegCheckSquare, FaCreditCard} from 'react-icons/fa'
 import {AiFillSafetyCertificate} from 'react-icons/ai'
 
-// assets/img/thumb_image.png
-// assets\img\maholmes.png
-// assets\img\Jahmyr-Gibbs-Suits-crop-741x1024.webp
-// assets\img\clove.png
-// assets\img\luca.webp
+
 
 export const HomeDelete = () => {
   return (

@@ -2,10 +2,15 @@ import React from 'react'
 
 import bannerVIDEO from '../../assets/video/football.mp4'
 import ballInStadium from '../../assets/img/footbal_in_stadium.jpg'
-import messiPROFILE from '../../assets/img/testimonial/Lionel_Messi.jpg'
+// import messiPROFILE from '../../assets/img/testimonial/Lionel_Messi.jpg'
 import neymarPROFILE from '../../assets/img/testimonial/Neymar_Jr.jpg'
 import ronaldoPROFILE from '../../assets/img/testimonial/Cristiano_Ronaldo.jpg'
 import NBA from '../../assets/img/nba.png'
+import messiPROFILE from "../../assets/img/thumb_image.png"
+import patrickProfile from "../../assets/img/maholmes.png"
+import Profile from "../../assets/img/Jahmyr-Gibbs-Suits-crop-741x1024.webp"
+import Profilee from "../../assets/img/clove.png"
+import lukaPROFILE from "../../assets/img/luca.webp"
 
 import rightArrow from '../../assets/img/icon/right-arrow.png'
 import houseFullStadium from '../../assets/img/housefull_stadium.jpg'
@@ -134,25 +139,25 @@ export const Home = () => {
     </div> */}
     {/* <!-- about end -->? */}
 
-    <div className='border'>
-      <div className='container'>
+    <div className=''>
+      <div className='container' id="why-section">
         <h1>Why Favela Bets Artificial Intelligence?</h1>
         <p>Unlike other picks services based on the gut instinct of some handicapper, Favela Bets Artificial Intelligence generates picks that are rooted in Artificial Intelligence with Quantum Computing</p>
-        <div style={{display: "flex"}}>
-          <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1", padding: "0 7px"}}>
-            <div><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
-            <h2 style={{textAlign: "center"}}>Powered by AI</h2>
-            <p style={{textAlign: "center"}}>Favela Bets Artificial Intelligence uses our own custom AI technology to harness the knowledge, injuries, and scoial media insight in real-time, generating predictions that have been shown to outperform other industry leading prediction sites.</p>
+        <div className='row justify-content-center'>
+          <div className='col-8 col-md-4 mx-auto mx-md-0'>
+            <div style={{display: "flex", justifyContent: "center"}}><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
+            <h3 style={{textAlign: "center", color: "rgb(82, 94, 114)"}}>Powered by AI</h3>
+            <p style={{textAlign: "center"}}><span style={{fontWeight: "600", color: "rgb(82, 94, 114"}}>Favela Bets Artificial Intelligence uses our own custom AI technology</span> to harness the knowledge, injuries, and scoial media insight in real-time, generating predictions that have been shown to outperform other industry leading prediction sites.</p>
           </div>
-          <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1", padding: "0 7px"}}>
-            <div><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
-            <h2  style={{textAlign: "center"}}>Rooted in Machine Learning</h2>
-            <p style={{textAlign: "center"}}>Rooted in the Technical principle of Polynomial Regression , our machine learning models connect to networked databases called “Clusters” that think together as a system, creating an AI-powered “Super Intelligence” that outperforms not only in speed but also accuracy. Favela Bets believes in data theory and collects and stores all data related to each sport model. </p>
+          <div className='col-8 col-md-4 mx-auto mx-md-0'>
+            <div style={{display: "flex", justifyContent: "center"}}><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
+            <h3  style={{textAlign: "center", color: "rgb(82, 94, 114)"}}>Rooted in Machine Learning</h3>
+            <p style={{textAlign: "center"}}><span style={{fontWeight: "600", color: "rgb(82, 94, 114"}}>Rooted in the Technical principle</span> of Polynomial Regression , our machine learning models connect to networked databases called “Clusters” that think together as a system, creating an AI-powered “Super Intelligence” that outperforms not only in speed but also accuracy. Favela Bets believes in data theory and collects and stores all data related to each sport model. </p>
           </div>
-          <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1", padding: "0 7px"}}>
-            <div><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
-            <h2  style={{textAlign: "center"}}>Clear & Transparent</h2>
-            <p style={{textAlign: "center"}}>Favela Bets Artificial Intelligence data visualizations give clarity and transparency. This sample Heat Map shows the result of a prediction of a single game, picking Miami Heat's player Tyler Herro to drop 18-22 points.</p>
+          <div className='col-8 col-md-4 mx-auto mx-md-0'>
+            <div style={{display: "flex", justifyContent: "center"}}><img src='https://lh3.googleusercontent.com/ssz-77B7tTIrZrDn2mX70e0AlpKCE8ZMYcHcafKT-gocdX-f-ZMqrWJ9sf-gsU85g-b7y6HVoFoUHyNAUYLu=w311'/></div>
+            <h3  style={{textAlign: "center", color: "rgb(82, 94, 114)"}}>Clear & Transparent</h3>
+            <p style={{textAlign: "center"}}><span style={{fontWeight: "600", color: "rgb(82, 94, 114"}}>Favela Bets Artificial Intelligence data visualizations</span> give clarity and transparency. This sample Heat Map shows the result of a prediction of a single game, picking Miami Heat's player Tyler Herro to drop 18-22 points.</p>
           </div>
         </div>
       </div>
@@ -196,7 +201,8 @@ export const Home = () => {
                         <td>
                           <a href="#0" className="tipster-pic">
                             <img
-                              src={messiPROFILE}
+                            className='usSmallImgimg'
+                              src={lukaPROFILE}
                               alt=""
                             />
                           </a>
@@ -217,7 +223,8 @@ export const Home = () => {
                         <td>
                           <a href="#0" className="tipster-pic">
                             <img
-                              src={messiPROFILE}
+                            className='usSmallImgimg'
+                              src={Profilee}
                               alt=""
                             />
                           </a>
@@ -238,7 +245,8 @@ export const Home = () => {
                         <td>
                           <a href="#0" className="tipster-pic">
                             <img
-                              src={messiPROFILE}
+                            className='usSmallImgimg'
+                              src={Profile}
                               alt=""
                             />
                           </a>
@@ -259,7 +267,8 @@ export const Home = () => {
                         <td>
                           <a href="#0" className="tipster-pic">
                             <img
-                              src={messiPROFILE}
+                            className='usSmallImgimg'
+                              src={patrickProfile}
                               alt=""
                             />
                           </a>
@@ -280,6 +289,7 @@ export const Home = () => {
                         <td>
                           <a href="#0" className="tipster-pic">
                             <img
+                            className='usSmallImgimg'
                               src={messiPROFILE}
                               alt=""
                             />
@@ -487,7 +497,7 @@ export const Home = () => {
     {/* <!-- feature end --> */}
 
     {/* <!-- testimonial begin --> */}
-    <TestimonialSlider/>
+    {/* <TestimonialSlider/> */}
     {/* <div className="testimonial">
       <div className="container">
         <div className="row justify-content-center">
@@ -558,7 +568,7 @@ export const Home = () => {
     {/* <!-- testimonial end --> */}
 
     {/* <!-- blog begin --> */}
-    <div className="blog">
+    {/* <div className="blog">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8 col-lg-8 col-md-9">
@@ -675,7 +685,7 @@ export const Home = () => {
           </a>
         </div>
       </div>
-    </div>
+    </div> */}
     {/* <!-- blog end --> */}
 
     {/* <!-- newsletter begin --> */}
@@ -712,7 +722,7 @@ export const Home = () => {
     {/* <!-- newsletter end --> */}
 
     {/* <!-- available-countries begin --> */}
-    <div className="available-countries">
+    {/* <div className="available-countries">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8 col-lg-8">
@@ -848,8 +858,9 @@ export const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
     {/* <!-- available-countries end --> */}
+    <div style={{height: "30px"}}></div>
   </div>
   )
 }

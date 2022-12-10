@@ -1,26 +1,147 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BreadcrumbTop } from '../../components/user/BreadcrumbTop'
 import { GoogleAuthProvider,signInWithPopup} from "firebase/auth";
 import { auth } from '../../auth/firebase';
+import { axiosInstance } from '../../axios';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Signup = () => {
+  let Navigate = useNavigate();
+  const notify = () => toast("You need to agree to terms and conditions!", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+  const notifySuccess = () => toast("You need to agree to terms and conditions!", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
+  const [check, setCheck] = useState(false);
+  console.log(check)
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [contact, setContact] = useState("");
+  const [referralId, setReferralId] = useState("");
+  const [parentId, setParentId] = useState("");
+
+  const [bussinessName, setBussinessName] = useState("");
+  const [websiteURL, setWebsiteURL] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [fax, setFax] = useState("");
 
   const googleSignUp = ()=>{
     var provider = new GoogleAuthProvider();
-    console.log("Clicked")
     signInWithPopup(auth,provider).then((result)=>{
-      // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-    console.log(token)
-    // The signed-in user info.
     const user = result.user;
     console.log(user)
+    axiosInstance({
+      method: "post",
+      url: "/api/user/",
+      data: {
+        mod: 1,
+        name: user.displayName,
+        email: user.email,
+        userId: user.uid
+      }
+    }).then(res => {
+      console.log(res)
+      if(res.data.status === "success"){
+        Navigate("/")
+      }
+    }).catch(err => {console.log(err)})
+
     }).catch((err)=>{console.log(err)})
+  }
+
+  const handleSubmit = (e) => {
+    if(check==false){
+      notify()
+    }else{
+      e.preventDefault()
+      console.log("here")
+      console.log(name)
+      console.log(email)
+      console.log(password)
+      console.log(contact)
+      console.log(referralId)
+      console.log(parentId)
+      console.log(bussinessName)
+      console.log(websiteURL)
+      console.log(country)
+      console.log(city)
+      console.log(postalCode)
+      console.log(streetAddress)
+      console.log(fax)
+  
+      axiosInstance({
+        method: "post",
+        url: "/api/user/",
+        data: {
+          mod: 0,
+          name,
+          email,
+          password,
+          contact,
+          referralId,
+          parentId,
+          bussinessName,
+          websiteURL,
+          country,
+          city,
+          postalCode,
+          streetAddress,
+          fax
+        }
+      }).then((res => {
+        console.log(res)
+        setName("")
+        setEmail("")
+        setPassword("")
+        setContact("")
+        setReferralId("")
+        setParentId("")
+        setBussinessName("")
+        setCity("")
+        setCountry("")
+        setFax("")
+        setStreetAddress("")
+        setPostalCode("")
+        setWebsiteURL("")
+        if(res.data.status === "success"){
+          notifySuccess()
+          Navigate("/")
+        }
+      })).catch(err => {
+        console.log(err)
+      })
+    }
+
   }
 
   return (
     <div>
+        <ToastContainer/>
         {/* <div className="preloader">
           <img src="assets/img/logo_favelabets.png" alt="" />
         </div> */}
@@ -45,35 +166,35 @@ export const Signup = () => {
               </div>
             </div>
             <div className="reg-body">
-              <form onSubmit={(e)=>{e.preventDefault()}}>
+              <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="row">
                   <div className="col-xl-6 col-lg-6 col-md-6">
                     <h4 className="sub-title">Personal Information</h4>
-                    <input type="text" placeholder="First Name*" />
-                    <input type="text" placeholder="Last Name*" />
-                    <input type="email" placeholder="Email*" />
-                    <input type="text" placeholder="Phone No:*" />
-                    <input type="text" placeholder="Choose Your Referral ID*" />
-                    <input type="text" placeholder="Parent ID*" />
+                    <input required type="text" placeholder="User Name*" value={name} onChange={e => setName(e.target.value)}/>
+                    <input type="email" placeholder="Email*" value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input required type="password" placeholder="Password*" value={password} onChange={e => setPassword(e.target.value)}/>
+                    <input required type="text" placeholder="Phone No:*" value={contact} onChange={e => setContact(e.target.value)}/>
+                    <input required type="text" placeholder="Choose Your Referral ID" value={referralId} onChange={e => setReferralId(e.target.value)}/>
+                    <input required type="text" placeholder="Parent ID" value={parentId} onChange={e => setParentId(e.target.value)}/>
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 additional-info">
                     <h4 className="sub-title">Additional Information</h4>
-                    <input type="text" placeholder="Business Name*" />
-                    <input
+                    <input required type="text" placeholder="Business Name*" value={bussinessName} onChange={e => setBussinessName(e.target.value)}/>
+                    <input required
                       type="text"
-                      placeholder="Website URL (where applicable)*"
+                      placeholder="Website URL (where applicable)*"value={websiteURL} onChange={e => setWebsiteURL(e.target.value)}
                     />
-                    <input type="email" placeholder="Country*" />
+                    <input required type="text" placeholder="Country*" value={country} onChange={e => setCountry(e.target.value)}/>
                     <div className="row">
                       <div className="col-xl-6 col-lg-6">
-                        <input type="text" placeholder="City*" />
+                        <input required type="text" placeholder="City*" value={city} onChange={e => setCity(e.target.value)}/>
                       </div>
                       <div className="col-xl-6 col-lg-6">
-                        <input type="text" placeholder="Postal Code*" />
+                        <input required type="text" placeholder="Postal Code*" value={postalCode} onChange={e => setPostalCode(e.target.value)}/>
                       </div>
                     </div>
-                    <input type="text" placeholder="Street Address*" />
-                    <input type="text" placeholder="Fax*" />
+                    <input required type="text" placeholder="Street Address*" value={streetAddress} onChange={e => setStreetAddress(e.target.value)}/>
+                    <input required type="text" placeholder="Fax*" value={fax} onChange={e => setFax(e.target.value)}/>
                   </div>
                 </div>
                 <div className="term-condition">
@@ -95,15 +216,21 @@ export const Signup = () => {
                 </div>
                 <div className="row">
                   <div className="col-xl-6 col-lg-6">
-                    <div className="form-check">
+                    <div className="form-check" >
                       <input
                         className="form-check-input"
                         type="checkbox"
                         name="exampleRadios"
                         id="exampleRadios5"
                         value="option2"
+                        checked = {check}
+                        onChange={()=>{
+                          setCheck(prevStat=> !prevStat)
+                        }}
                       />
-                      <label className="form-check-label" for="exampleRadios5">
+                      <label className="form-check-label" onClick={()=>{
+                          setCheck(prevStat=> !prevStat)
+                        }} style={{display: "inline"}}>
                         I agree to the terms &amp; conditions.
                       </label>
                       <p>
@@ -113,7 +240,7 @@ export const Signup = () => {
                     </div>
                   </div>
                   <div className="col-xl-6 col-lg-6">
-                    <button className="def-btn btn-form w-100">
+                    <button type='submit' className="def-btn btn-form w-100">
                       Secure Sign Up <i className="fas fa-arrow-right"></i>
                     </button>
                   </div>
@@ -121,6 +248,7 @@ export const Signup = () => {
                 <div className="row text-center">
                   <div className="col-12 col-lg-6 my-1 my-lg-0">
                     <button
+                      type='button'
                       onClick={googleSignUp}
                       className="btn btn-outline-dark w-100 px-4 py-3"
                       style={{textTransform: "none", width: "230px"}}
@@ -136,6 +264,7 @@ export const Signup = () => {
                   </div>
                   <div className="col-12 col-lg-6 my-1 my-lg-0">
                     <button
+                      type='button'
                       className="btn px-3 py-3 w-100"
                       style={{backgroundColor: "#1877f2", color: "white", textTransform: "none"}}
                     >

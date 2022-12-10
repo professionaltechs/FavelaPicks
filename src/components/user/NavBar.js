@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import favelabetsLOGO from '../../assets/img/logo_favelabets.png'
 
 export const NavBar = () => {
+  // localStorage.getItem("isLoggedIn")
   return (
     <div className="header">
         <nav className="navbar navbar-expand-lg navbar-light px-5 py-3" style={{backgroundColor: "#2A2A2A"}}>
