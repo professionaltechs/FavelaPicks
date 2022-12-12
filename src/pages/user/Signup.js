@@ -49,36 +49,41 @@ export const Signup = () => {
   const [fax, setFax] = useState("");
 
   const googleSignUp = ()=>{
-    var provider = new GoogleAuthProvider();
-    signInWithPopup(auth,provider).then((result)=>{
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    console.log(user)
-    axiosInstance({
-      method: "post",
-      url: "/api/user/",
-      data: {
-        mod: 1,
-        name: user.displayName,
-        email: user.email,
-        userId: user.uid
-      }
-    }).then(res => {
-      console.log(res)
-      if(res.data.status === "success"){
-        Navigate("/")
-      }
-    }).catch(err => {console.log(err)})
-
-    }).catch((err)=>{console.log(err)})
-  }
-
-  const handleSubmit = (e) => {
+    console.log("_______________---------------------")
     if(check==false){
       notify()
     }else{
-      e.preventDefault()
+      var provider = new GoogleAuthProvider();
+      signInWithPopup(auth,provider).then((result)=>{
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log(user)
+      axiosInstance({
+        method: "post",
+        url: "/api/user/",
+        data: {
+          mod: 1,
+          name: user.displayName,
+          email: user.email,
+          userId: user.uid
+        }
+      }).then(res => {
+        console.log(res)
+        if(res.data.status === "success"){
+          Navigate("/")
+        }
+      }).catch(err => {console.log(err)})
+  
+      }).catch((err)=>{console.log(err)})
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(check==false){
+      notify()
+    }else{
       console.log("here")
       console.log(name)
       console.log(email)
@@ -136,7 +141,6 @@ export const Signup = () => {
         console.log(err)
       })
     }
-
   }
 
   return (

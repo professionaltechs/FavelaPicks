@@ -22,27 +22,30 @@ import { NFL } from './pages/user/NFL';
 import { PlayerGallery } from './pages/user/PlayerGallery';
 import Delete from './components/user/Delete';
 import { HomeDelete } from './pages/user/HomeDelete';
+import { AuthProvider } from './authContext/AuthProvider';
 
 function App() {
   return (
     // <Delete/>
-    <Router>
-      <NavBar/>
-      <Routes>
-        <Route path = '/' element = {<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/premium' element={<Premium/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/blog' element={<Blog/>}/>
-        <Route path='/NBA' element={<NBA/>}/>
-        <Route path='/NCAAF' element={<NCAAF/>}/>
-        <Route path='/NCAAB' element={<NCAAB/>}/>
-        <Route path='/NFL' element={<NFL/>}/>
-        <Route path='/playerGallery' element={<PlayerGallery/>}/>
-      </Routes>
-      <Footer/>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route path = '/' element = {<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/premium' element={<Premium/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/blog' element={<Blog/>}/>
+          <Route path='/NBA' element={<NBA/>}/>
+          <Route path='/NCAAF' element={<NCAAF/>}/>
+          <Route path='/NCAAB' element={<NCAAB/>}/>
+          <Route path='/NFL' element={<NFL/>}/>
+          <Route path='/playerGallery' element={<PlayerGallery/>}/>
+        </Routes>
+        <Footer/>
+      </Router>
+    </AuthProvider>
   );
 }
 

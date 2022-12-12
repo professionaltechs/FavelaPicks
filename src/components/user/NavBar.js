@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import favelabetsLOGO from '../../assets/img/logo_favelabets.png'
+import favelabetsLOGO from '../../assets/img/favela.png'
+import {FaLock, FaUser} from 'react-icons/fa'
+import { UserContext } from '../../authContext/AuthProvider';
 
 export const NavBar = () => {
-  // localStorage.getItem("isLoggedIn")
+  const {user, setUser} = useContext(UserContext)
   return (
     <div className="header">
         <nav className="navbar navbar-expand-lg navbar-light px-5 py-3" style={{backgroundColor: "#2A2A2A"}}>
@@ -25,10 +27,30 @@ export const NavBar = () => {
                     Today's Picks
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><Link className="dropdown-item" to="/NBA">NBA Picks</Link></li>
-                    <li><Link className="dropdown-item" to="/NCAAF">NCAAF Picks</Link></li>
-                    <li><Link className="dropdown-item" to="/NCAAB">NCAAB Picks</Link></li>
-                    <li><Link className="dropdown-item" to="/NFL">NFL Picks</Link></li>
+                    <li>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NBA" : "#"}>
+                        NBA Picks 
+                        {user.isLoggedIn ? "" : <FaLock/>}
+                      </Link>
+                    </li>
+                    <li >
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NCAAF" : "#"} aria-disabled>
+                        NCAAF Picks 
+                        {user.isLoggedIn ? "" : <FaLock/>}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NCAAB" : "#"}>
+                        NCAAB Picks 
+                        {user.isLoggedIn ? "" : <FaLock/>}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NFL" : "#"}>
+                        NFL Picks 
+                        {user.isLoggedIn ? "" : <FaLock/>}
+                      </Link>
+                    </li>
                   </ul>
                 </li>
                 <li className="nav-item ms-3">
@@ -48,8 +70,24 @@ export const NavBar = () => {
                 </li>
               </ul>
               <div className="d-flex">
-                <Link to='/signup' className="nav-link active hover">Register</Link>
-                <Link to='/' className="nav-link active ms-2 hover">Login</Link>
+                {user.isLoggedIn ? null : <Link to='/signup' className="nav-link active hover">Register</Link>}
+                {user.isLoggedIn ? null : <Link to='/' className="nav-link active ms-2 hover">Login</Link>}
+                { user.isLoggedIn ? <div style={{backgroundColor: "white", padding: "5px 15px", borderRadius: "4px", fontWeight: "600"}}>
+                    <FaUser style={{marginRight: "8px"}}/>
+                    {user.userName}
+                  </div> : null
+                }
+                {user.isLoggedIn ? <Link onClick={()=>{
+                  localStorage.removeItem("isLoggedIn")
+                  localStorage.removeItem("userName")
+                  setUser(prevStat=>{
+                    return{
+                      ...prevStat,
+                      isLoggedIn: false,
+                      userName: ""
+                    }
+                  })
+                }} to='/' className="nav-link active ms-2 hover">Logout</Link> : null}
               </div>
             </div>
           </div>

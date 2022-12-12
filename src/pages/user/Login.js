@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { axiosInstance } from "../../axios";
 import { BreadcrumbTop } from "../../components/user/BreadcrumbTop";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../auth/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import { UserContext } from "../../authContext/AuthProvider";
 
 export const Login = () => {
+  const {user, setUser} = useContext(UserContext);
+
+  const notify = () => toast("You need to agree to terms and conditions!", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+  const wrongCredentials = () => toast("Please provide correct credentials.", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [check, setCheck] = useState(false);
   let Navigate = useNavigate();
 
   const googleSignUp = () => {
@@ -32,6 +57,14 @@ export const Login = () => {
             console.log(res);
             if (res.data.status === "success") {
               localStorage.setItem("isLoggedIn", "true");
+              localStorage.setItem("userName", user.displayName);
+              setUser(prevStat=>{
+                return {
+                  ...prevStat,
+                  isLoggedIn: true,
+                  userName: user.displayName
+                }
+              })
               Navigate("/home");
             }
           })
@@ -45,7 +78,7 @@ export const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log("here");
+    console.log(check);
     e.preventDefault();
     axiosInstance({
       method: "post",
@@ -60,13 +93,25 @@ export const Login = () => {
         console.log(res);
         if (res.data.status === "success") {
           localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("userName", res.data.Data.name);
+          setUser(prevStat => {
+            return {
+              ...prevStat,
+              isLoggedIn: true,
+              userName: res.data.Data.name
+            }
+          })
           Navigate("/home");
+        }
+        else{
+          wrongCredentials()
         }
       })
       .catch((err) => console.log(err));
   };
   return (
     <div>
+      <ToastContainer/>
       <BreadcrumbTop title="User login" />
       <div className="register">
         <div className="container">
@@ -87,7 +132,7 @@ export const Login = () => {
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-6">
               <div className="reg-body login">
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <form onSubmit={(e) => e.preventDefault()}>
                   <input
                     type="email"
                     placeholder="email"
@@ -110,8 +155,14 @@ export const Login = () => {
                             name="exampleRadios"
                             id="exampleRadios5"
                             value="option2"
+                            checked={check}
+                            onChange={()=>{
+                              setCheck(prevStat=> !prevStat)
+                            }}
                           />
-                          <label className="form-check-label">
+                          <label className="form-check-label" onClick={()=>{
+                            setCheck(prevStat=> !prevStat)
+                          }}>
                             Remember password
                           </label>
                           <p>
@@ -124,6 +175,7 @@ export const Login = () => {
                       </div>
                       <div className="col-xl-5 col-lg-5 text-right">
                         <button
+                          onClick={(e) => handleSubmit(e)}
                           type="submit"
                           className="def-btn btn-form w-100"
                         >
