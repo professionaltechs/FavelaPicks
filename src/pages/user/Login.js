@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { axiosInstance } from "../../axios";
 import { BreadcrumbTop } from "../../components/user/BreadcrumbTop";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -34,6 +34,10 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState(false);
   let Navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const googleSignUp = () => {
     var provider = new GoogleAuthProvider();

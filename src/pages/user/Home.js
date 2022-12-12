@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 import bannerVIDEO from '../../assets/video/football.mp4'
 import ballInStadium from '../../assets/img/footbal_in_stadium.jpg'
@@ -40,6 +40,9 @@ import Nepal from '../../assets/img/flag/020-nepal.png'
 import { TestimonialSlider } from '../../components/user/home/TestimonialSlider'
 
 export const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div>
     {/* <!-- preloader begin --> */}
