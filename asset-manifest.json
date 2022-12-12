@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.50d5326f.css",
-    "main.js": "/static/js/main.7c7e8376.js",
+    "main.css": "/static/css/main.8d014766.css",
+    "main.js": "/static/js/main.38fa53d4.js",
     "static/js/787.1492bc40.chunk.js": "/static/js/787.1492bc40.chunk.js",
     "static/media/football.mp4": "/static/media/football.97c196f76773c1e59e52.mp4",
     "static/media/housefull_stadium.jpg": "/static/media/housefull_stadium.91ee238f31d627440efd.jpg",
@@ -28,15 +28,15 @@
     "static/media/favela.png": "/static/media/favela.f05617d1d86f54592148.png",
     "static/media/indicator-bg.jpg": "/static/media/indicator-bg.fedb7c046d19c8cd31a5.jpg",
     "static/media/stadium.jpg": "/static/media/stadium.98fef858ff37ceb69af9.jpg",
-    "static/media/phone-call.svg": "/static/media/phone-call.b2eb14bad9017266842cf85effac676a.svg",
-    "static/media/email.svg": "/static/media/email.0da3634e9a1b4a5c820fa992905459eb.svg",
+    "static/media/phone-call.svg": "/static/media/phone-call.4d3184cbc86c3687b2b5e692171d1fab.svg",
+    "static/media/email.svg": "/static/media/email.5a3ac16c20ba8811ade6ef8d53f77d3a.svg",
     "index.html": "/index.html",
-    "main.50d5326f.css.map": "/static/css/main.50d5326f.css.map",
-    "main.7c7e8376.js.map": "/static/js/main.7c7e8376.js.map",
+    "main.8d014766.css.map": "/static/css/main.8d014766.css.map",
+    "main.38fa53d4.js.map": "/static/js/main.38fa53d4.js.map",
     "787.1492bc40.chunk.js.map": "/static/js/787.1492bc40.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50d5326f.css",
-    "static/js/main.7c7e8376.js"
+    "static/css/main.8d014766.css",
+    "static/js/main.38fa53d4.js"
   ]
 }
