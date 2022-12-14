@@ -23,10 +23,12 @@ import { PlayerGallery } from './pages/user/PlayerGallery';
 import Delete from './components/user/Delete';
 import { HomeDelete } from './pages/user/HomeDelete';
 import { AuthProvider } from './authContext/AuthProvider';
+import Index from './components/user/stripe/Index';
 
 function App() {
   return (
     // <Delete/>
+    // <Index/>
     <AuthProvider>
       <Router>
         <NavBar/>
