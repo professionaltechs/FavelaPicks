@@ -17,7 +17,7 @@ export const Card = ({daysCycle, price, description, discount, id}) => {
                 <button className='derive' onClick={()=>{email !== null || email !== "" ? stripeCheckOutFunction(id) : alert("Kindly Login First")}}>Stripe</button>
                 <button className='don' onClick={()=> {
                   email !== null || email !== "" ?
-                  window.location.href = `http://localhost:5000/paypal/${id}`
+                  window.location.href = `https://backend.favelapicks.com/paypal/${id}`
                   : alert("Kindly Login First")
                 } }>Paypal</button>
                 <button className='shah' onClick={()=>setOpen(false)}>Cancel</button>
