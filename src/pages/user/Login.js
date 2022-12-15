@@ -103,13 +103,15 @@ export const Login = () => {
           localStorage.setItem("userName", res.data.Data.name);
           localStorage.setItem("email", res.data.Data.email);
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("membershipStatus", res.data.Data.membershipStatus);
           setUser(prevStat => {
             return {
               ...prevStat,
               isLoggedIn: true,
               userName: res.data.Data.name,
               email: res.data.Data.email,
-              token: res.data.email
+              token: res.data.token,
+              membershipStatus: res.data.Data.membershipStatus
             }
           })
           Navigate("/home");

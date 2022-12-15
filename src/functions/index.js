@@ -13,6 +13,7 @@ export const stripHtml = (html) => {
 }
 
 export const stripeCheckOutFunction = async (id) => {
+    console.log(id)
     axiosAuthInstance({
         method: "post",
         url: "api/membership/create-checkout-session",
@@ -24,4 +25,18 @@ export const stripeCheckOutFunction = async (id) => {
     }).catch(err => {
         console.error(err)
     })
+}
+
+setTimeout(function() {
+    console.log("waiting");
+}, 1000);
+
+export const check = (str) => {
+    const y = localStorage.getItem(str)
+    if (y != "") {
+        console.log(y);
+        return "complete"
+    } else {
+        setTimeout(check, 0);
+    }
 }

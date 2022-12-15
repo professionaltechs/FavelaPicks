@@ -1,11 +1,43 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import favelabetsLOGO from '../../assets/img/favela.png'
 import {FaLock, FaUser} from 'react-icons/fa'
 import { UserContext } from '../../authContext/AuthProvider';
+import { axiosAuthInstance } from '../../axios';
+import { check } from '../../functions';
 
 export const NavBar = () => {
   const {user, setUser} = useContext(UserContext)
+
+  console.log(user)
+
+  // const test = check("email")
+
+  // console.log(test)
+
+  useEffect(()=>{
+    if(user.isLoggedIn){
+      axiosAuthInstance({
+        method: "post",
+        url: "api/user/userDetails",
+        data: {
+          email: user.email
+        }
+      }).then(res => {
+        console.log(res)
+        if(res.statusCode != 403){
+          setUser(prevStat => {
+            return {
+              ...prevStat,
+              membershipStatus: res.data.membershipStatus
+            }
+          })
+        }
+      }).catch(err => console.log(err))
+    }
+  },[user.isLoggedIn])
+
+  // console.log(here)
   return (
     <div className="header">
         <nav className="navbar navbar-expand-lg navbar-light px-5 py-3" style={{backgroundColor: "#2A2A2A"}}>
@@ -28,27 +60,27 @@ export const NavBar = () => {
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NBA" : "#"}>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.membershipStatus == 1 ? "/NBA" : "#"}>
                         NBA Picks 
-                        {user.isLoggedIn ? "" : <FaLock/>}
+                        {user.membershipStatus == 1 ? "" : <FaLock/>}
                       </Link>
                     </li>
                     <li >
-                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NCAAF" : "#"} aria-disabled>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.membershipStatus == 1 ? "/NCAAF" : "#"} aria-disabled>
                         NCAAF Picks 
-                        {user.isLoggedIn ? "" : <FaLock/>}
+                        {user.membershipStatus == 1 ? "" : <FaLock/>}
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NCAAB" : "#"}>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.membershipStatus == 1 ? "/NCAAB" : "#"}>
                         NCAAB Picks 
-                        {user.isLoggedIn ? "" : <FaLock/>}
+                        {user.membershipStatus == 1 ? "" : <FaLock/>}
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item d-flex justify-content-between" to={user.isLoggedIn ? "/NFL" : "#"}>
+                      <Link className="dropdown-item d-flex justify-content-between" to={user.membershipStatus == 1 ? "/NFL" : "#"}>
                         NFL Picks 
-                        {user.isLoggedIn ? "" : <FaLock/>}
+                        {user.membershipStatus == 1 ? "" : <FaLock/>}
                       </Link>
                     </li>
                   </ul>
@@ -59,14 +91,23 @@ export const NavBar = () => {
                 <li className="nav-item ms-3">
                   <Link className="nav-link active" to="/contact" style={{fontSize: "0.8rem", fontWeight: "700", color: "white"}}>CONTACT</Link>
                 </li>
-                <li className="nav-item ms-md-3">
+                <li className="nav-item ms-md-3" style={{display: user.membershipStatus == 1 ? "none" : "block"}}>
                   <Link className="nav-link active" to="/premium" style={{color: "white",
                   backgroundColor: "#F04E45",
                   border: "1px solid #F04E45",
                   padding: "8px 13px",
                   borderRadius: "4px",
                   fontSize: "0.7rem",
-                  fontWeight: "600",}}>PREMIUM</Link>
+                  fontWeight: "600",}}>GO PREMIUM</Link>
+                </li>
+                <li className="nav-item ms-md-3" style={{display: user.membershipStatus == 1 ? "block" : "none"}}>
+                  <Link className="nav-link active" to="#" style={{color: "white",
+                  backgroundColor: "#F04E45",
+                  border: "1px solid #F04E45",
+                  padding: "8px 13px",
+                  borderRadius: "4px",
+                  fontSize: "0.7rem",
+                  fontWeight: "600",}}>PREMIUM MEMBER</Link>
                 </li>
               </ul>
               <div className="d-flex">
@@ -82,12 +123,14 @@ export const NavBar = () => {
                   localStorage.removeItem("userName")
                   localStorage.removeItem("token")
                   localStorage.removeItem("email")
+                  localStorage.removeItem("membershipStatus")
                   setUser(prevStat=>{
                     return{
                       ...prevStat,
                       isLoggedIn: false,
                       userName: "",
-                      email: ""
+                      email: "",
+                      membershipStatus: 0
                     }
                   })
                 }} to='/' className="nav-link active ms-2 hover">Logout</Link> : null}

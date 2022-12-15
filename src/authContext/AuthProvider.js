@@ -10,7 +10,8 @@ export const UserContext = createContext({
     isLoggedIn: false,
     userName: "",
     email: "",
-    token: ""
+    token: "",
+    membershipStatus: 0
 });
 
 export const AuthProvider = ({children}) => {
@@ -19,7 +20,8 @@ export const AuthProvider = ({children}) => {
       isLoggedIn: false,
       userName: "",
       email: "",
-      token: ""
+      token: "",
+      membershipStatus: 0
   });
 
   useEffect(()=>{
@@ -36,8 +38,6 @@ export const AuthProvider = ({children}) => {
       })
     }
   }, []);
-  
-  // console.log(user)
   
   return (
     <UserContext.Provider value={{user, setUser}}>

@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../../../authContext/AuthProvider';
 import { stripeCheckOutFunction } from '../../../functions'
 
 export const Card = ({daysCycle, price, description, discount, id}) => {
-  const email = localStorage.getItem("email");
+  const {user} = useContext(UserContext);
+  const {email} = user;
+  // const email = localStorage.getItem("email");
   const [open, setOpen] = useState(false);
   return (
     <div className="col-12 col-md-6 col-lg-4 col-xl-3 p-2 text-center">
@@ -17,7 +20,8 @@ export const Card = ({daysCycle, price, description, discount, id}) => {
                 <button className='derive' onClick={()=>{email !== null || email !== "" ? stripeCheckOutFunction(id) : alert("Kindly Login First")}}>Stripe</button>
                 <button className='don' onClick={()=> {
                   email !== null || email !== "" ?
-                  window.location.href = `https://backend.favelapicks.com/paypal/${id}`
+                  // window.location.href = `http://localhost:5000/api/membership/paypal/${id}/${email}`
+                  window.location.href = `https://backend.favelapicks.com/api/membership/paypal/${id}/${email}`
                   : alert("Kindly Login First")
                 } }>Paypal</button>
                 <button className='shah' onClick={()=>setOpen(false)}>Cancel</button>
