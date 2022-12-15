@@ -15,11 +15,6 @@ const ProductDisplay = () => (
       </div>
     </div>
     <button onClick={stripeCheckOutFunction}>Checkout</button>
-    {/* <form action="http://localhost:5000/api/user/create-checkout-session" method="POST">
-      <button type="submit">
-        Checkout
-      </button>
-    </form> */}
   </section>
 );
 

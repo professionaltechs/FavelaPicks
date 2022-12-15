@@ -12,7 +12,7 @@ export const axiosInstance = axios.create({
 })
 
 export const axiosAuthInstance = axios.create({
-    baseURL: "https://backend.favelapicks.com/",
+    baseURL: "http://localhost:5000/",
     headers: {
         "Content-Type": "application/json",
         "access-control-allow-origin": "*",

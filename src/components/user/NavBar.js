@@ -80,11 +80,14 @@ export const NavBar = () => {
                 {user.isLoggedIn ? <Link onClick={()=>{
                   localStorage.removeItem("isLoggedIn")
                   localStorage.removeItem("userName")
+                  localStorage.removeItem("token")
+                  localStorage.removeItem("email")
                   setUser(prevStat=>{
                     return{
                       ...prevStat,
                       isLoggedIn: false,
-                      userName: ""
+                      userName: "",
+                      email: ""
                     }
                   })
                 }} to='/' className="nav-link active ms-2 hover">Logout</Link> : null}

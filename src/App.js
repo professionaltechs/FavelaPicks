@@ -24,6 +24,7 @@ import Delete from './components/user/Delete';
 import { HomeDelete } from './pages/user/HomeDelete';
 import { AuthProvider } from './authContext/AuthProvider';
 import Index from './components/user/stripe/Index';
+import { Success } from './pages/user/Success';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path='/NCAAB' element={<NCAAB/>}/>
           <Route path='/NFL' element={<NFL/>}/>
           <Route path='/playerGallery' element={<PlayerGallery/>}/>
+          <Route path='/success' element={<Success/>}/>
         </Routes>
         <Footer/>
       </Router>

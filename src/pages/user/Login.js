@@ -44,7 +44,7 @@ export const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        // const token = credential.accessToken;
         const user = result.user;
         console.log(user);
         axiosInstance({
@@ -62,11 +62,14 @@ export const Login = () => {
             if (res.data.status === "success") {
               localStorage.setItem("isLoggedIn", "true");
               localStorage.setItem("userName", user.displayName);
+              localStorage.setItem("email", user.email);
+              localStorage.setItem("token", res.data.token);
               setUser(prevStat=>{
                 return {
                   ...prevStat,
                   isLoggedIn: true,
-                  userName: user.displayName
+                  userName: user.displayName,
+                  email: user.email
                 }
               })
               Navigate("/home");
@@ -98,11 +101,15 @@ export const Login = () => {
         if (res.data.status === "success") {
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("userName", res.data.Data.name);
+          localStorage.setItem("email", res.data.Data.email);
+          localStorage.setItem("token", res.data.token);
           setUser(prevStat => {
             return {
               ...prevStat,
               isLoggedIn: true,
-              userName: res.data.Data.name
+              userName: res.data.Data.name,
+              email: res.data.Data.email,
+              token: res.data.email
             }
           })
           Navigate("/home");
