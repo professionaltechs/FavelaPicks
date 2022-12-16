@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9236294c.css",
-    "main.js": "/static/js/main.49ef05c4.js",
+    "main.js": "/static/js/main.5d048675.js",
     "static/js/787.1492bc40.chunk.js": "/static/js/787.1492bc40.chunk.js",
     "static/media/football.mp4": "/static/media/football.97c196f76773c1e59e52.mp4",
     "static/media/housefull_stadium.jpg": "/static/media/housefull_stadium.91ee238f31d627440efd.jpg",
@@ -32,11 +32,11 @@
     "static/media/email.svg": "/static/media/email.5a3ac16c20ba8811ade6ef8d53f77d3a.svg",
     "index.html": "/index.html",
     "main.9236294c.css.map": "/static/css/main.9236294c.css.map",
-    "main.49ef05c4.js.map": "/static/js/main.49ef05c4.js.map",
+    "main.5d048675.js.map": "/static/js/main.5d048675.js.map",
     "787.1492bc40.chunk.js.map": "/static/js/787.1492bc40.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9236294c.css",
-    "static/js/main.49ef05c4.js"
+    "static/js/main.5d048675.js"
   ]
 }
