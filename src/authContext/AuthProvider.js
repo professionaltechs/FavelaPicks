@@ -4,8 +4,10 @@ const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 const userName = localStorage.getItem("userName");
 const email = localStorage.getItem("email");
 const token = localStorage.getItem("token");
+const id = localStorage.getItem("id");
 
 export const UserContext = createContext({
+    id: "",
     isLoading: false,
     isLoggedIn: false,
     userName: "",
@@ -16,6 +18,7 @@ export const UserContext = createContext({
 
 export const AuthProvider = ({children}) => {
   const [user, setUser] = useState({
+      id: "",
       isLoading: false,
       isLoggedIn: false,
       userName: "",
@@ -30,6 +33,7 @@ export const AuthProvider = ({children}) => {
       setUser(prevStat => {
         return{
           ...prevStat,
+          id: "",
           isLoggedIn: true,
           userName: userName,
           email: email,
