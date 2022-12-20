@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../authContext/AuthProvider';
 import { axiosAuthInstance, axiosInstance } from '../../axios';
+import { Footer } from '../../components/user/Footer';
+import { NavBar } from '../../components/user/NavBar';
 
 
 export const Success = () => {
@@ -47,6 +49,10 @@ export const Success = () => {
 
     //   subscribeAPI(membershipId)
   return (
-    <h1>{message}</h1>
+    <>
+      <NavBar/>
+      <h1>{message}</h1>
+      <Footer/>
+    </>
   )
 }

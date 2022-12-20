@@ -1,0 +1,84 @@
+.parentContainer{
+    background-color: white;
+    padding: 10px;
+    height: 100vh
+}
+.parentContainer > div {
+    display: flex;
+    height: 98vh; 
+    width: 100%
+}
+.parentContainer > div > div:first-child{
+    background-color: #2A2A2A;
+    height: 98vh;
+    width: 20%; 
+    margin-right: 15px; 
+    border-radius: 25px;
+}
+/* .sidebar{
+    background-color: #235183;
+    height: 98vh;
+    width: 20%; 
+    margin-right: 15px; 
+    border-radius: 25px;
+} */
+.parentContainer > div > div:first-child > ul > li{
+    margin-left: 7% !important;
+    border-radius: 2rem 0rem 0rem 2rem !important;
+    padding: 17px 20px ;
+    list-style-type: none;
+    margin: 10px 0;
+    /* padding-left: 60px; */
+    cursor: pointer;
+}
+
+.parentContainer > div > div:first-child > ul > li:hover {
+    background-color: white;
+}
+.parentContainer > div > div:first-child > ul > li > a{
+    display:flex; 
+    align-items: center; 
+    color: white; 
+    font-weight: bolder;
+    text-decoration: none !important;
+}
+.parentContainer > div > div:first-child > ul > li > a > span{
+    padding-left: 40px; 
+    font-size: 16px
+}
+
+.parentContainer > div > div:first-child > ul > li:hover a {
+    color: #F04E45 !important;
+}
+
+
+
+
+ul .activate {
+    background-color: white;
+}
+
+ul .activate a{
+    color: #F04E45 !important;
+}
+.deactivate {
+    display: none;
+}
+
+
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hidescroll::-webkit-scrollbar {
+    display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .hidescroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.transitionAnimation{
+    transition: 1s ease all;
+}

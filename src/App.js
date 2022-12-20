@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { Login } from './pages/user/Login';
+import { AdminLogin } from './pages/admin/Login';
 import { Signup } from './pages/user/Signup';
 import './assets/css/bootstrap.min.css'
 // import './assets/css/fontawesome.min.css'
@@ -26,6 +27,7 @@ import { AuthProvider } from './authContext/AuthProvider';
 import Index from './components/user/stripe/Index';
 import { Success } from './pages/user/Success';
 import { UserProfile } from './pages/user/UserProfile';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
 
 function App() {
   return (
@@ -33,7 +35,6 @@ function App() {
     // <Index/>
     <AuthProvider>
       <Router>
-        <NavBar/>
         <Routes>
           <Route path = '/' element = {<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
@@ -48,8 +49,11 @@ function App() {
           <Route path='/UserProfile' element={<UserProfile/>}/>
           <Route path='/playerGallery' element={<PlayerGallery/>}/>
           <Route path='/success' element={<Success/>}/>
+
+          <Route path='/adminlogin' element={<AdminLogin/>}/>
+          <Route path='/admindashboard' element={<AdminDashboard/>}/>
+          
         </Routes>
-        <Footer/>
       </Router>
     </AuthProvider>
   );

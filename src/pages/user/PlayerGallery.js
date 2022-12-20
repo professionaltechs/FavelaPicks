@@ -6,25 +6,31 @@ import image2 from '../../assets/img/playerGallery/Beautiful reflection_.jpg'
 import image3 from '../../assets/img/playerGallery/Goku Ultra wallpaper by husnainshah769 - Download on ZEDGE™ _ db98.jpg'
 import image4 from '../../assets/img/playerGallery/Neymar jr hot Neymar hot wallpaper Neymar jr wallpapers 4k Neymar vídeos Neymar jr hairstyle.jpg'
 import image5 from '../../assets/img/playerGallery/Sunset in Santa Rosa Beach Florida.jpg'
+import { NavBar } from '../../components/user/NavBar'
+import { Footer } from '../../components/user/Footer'
 
 export const PlayerGallery = () => {
   return (
-    <div>
-    <div class="mainGallery">
-      <h1>Player Gallery</h1>
+    <>
+    <NavBar/>
       <div>
-        <PlayerCard sourceIMG={image1}/>
-        <PlayerCard sourceIMG={image2}/>
-        <PlayerCard sourceIMG={image3}/>
-        <PlayerCard sourceIMG={image4}/>
-        <PlayerCard sourceIMG={image5}/>
-        <PlayerCard sourceIMG={image1}/>
-        <PlayerCard sourceIMG={image2}/>
-        <PlayerCard sourceIMG={image3}/>
-        <PlayerCard sourceIMG={image4}/>
-        <PlayerCard sourceIMG={image5}/>
+      <div class="mainGallery">
+        <h1>Player Gallery</h1>
+        <div>
+          <PlayerCard sourceIMG={image1}/>
+          <PlayerCard sourceIMG={image2}/>
+          <PlayerCard sourceIMG={image3}/>
+          <PlayerCard sourceIMG={image4}/>
+          <PlayerCard sourceIMG={image5}/>
+          <PlayerCard sourceIMG={image1}/>
+          <PlayerCard sourceIMG={image2}/>
+          <PlayerCard sourceIMG={image3}/>
+          <PlayerCard sourceIMG={image4}/>
+          <PlayerCard sourceIMG={image5}/>
+        </div>
       </div>
     </div>
-  </div>
+    <Footer/>
+    </>
   )
 }
