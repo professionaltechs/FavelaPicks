@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import favelabetsLOGO from '../../assets/img/favela.png'
 import {FaLock, FaUser} from 'react-icons/fa'
 import { UserContext } from '../../authContext/AuthProvider';
@@ -8,8 +8,9 @@ import { check } from '../../functions';
 
 export const NavBar = () => {
   const {user, setUser} = useContext(UserContext)
-
-  console.log(user)
+  let Navigate = useNavigate();
+  const date = new Date();
+  // console.log(user)
 
   // const test = check("email")
 
@@ -24,12 +25,13 @@ export const NavBar = () => {
           email: user.email
         }
       }).then(res => {
-        console.log(res)
-        if(res.statusCode != 403){
+        console.log(res.data)
+        if(res.data.membership != null && (new Date(res.data.membership.validityDate).getTime() > new Date().getTime())){
+          console.log("inside")
           setUser(prevStat => {
             return {
               ...prevStat,
-              membershipStatus: res.data.membershipStatus
+              membershipStatus: res.data.membership.status
             }
           })
         }
@@ -37,7 +39,7 @@ export const NavBar = () => {
     }
   },[user.isLoggedIn])
 
-  // console.log(here)
+  console.log(user)
   return (
     <div className="header">
         <nav className="navbar navbar-expand-lg navbar-light px-5 py-3" style={{backgroundColor: "#2A2A2A"}}>
@@ -113,7 +115,9 @@ export const NavBar = () => {
               <div className="d-flex">
                 {user.isLoggedIn ? null : <Link to='/signup' className="nav-link active hover">Register</Link>}
                 {user.isLoggedIn ? null : <Link to='/' className="nav-link active ms-2 hover">Login</Link>}
-                { user.isLoggedIn ? <div style={{backgroundColor: "white", padding: "5px 15px", borderRadius: "4px", fontWeight: "600"}}>
+                { user.isLoggedIn ? <div onClick={()=>{
+                  Navigate("/userprofile")
+                }} style={{backgroundColor: "white", cursor: "pointer", padding: "5px 15px", borderRadius: "4px", fontWeight: "600"}}>
                     <FaUser style={{marginRight: "8px"}}/>
                     {user.userName}
                   </div> : null

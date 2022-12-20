@@ -69,7 +69,8 @@ export const Login = () => {
                   ...prevStat,
                   isLoggedIn: true,
                   userName: user.displayName,
-                  email: user.email
+                  email: user.email,
+                  token: res.data.token
                 }
               })
               Navigate("/home");

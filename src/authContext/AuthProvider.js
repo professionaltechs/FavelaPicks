@@ -13,10 +13,12 @@ export const UserContext = createContext({
     userName: "",
     email: "",
     token: "",
-    membershipStatus: 0
+    membershipStatus: 0,
+    isPremimum: false
 });
 
 export const AuthProvider = ({children}) => {
+
   const [user, setUser] = useState({
       id: "",
       isLoading: false,
@@ -24,7 +26,8 @@ export const AuthProvider = ({children}) => {
       userName: "",
       email: "",
       token: "",
-      membershipStatus: 0
+      membershipStatus: 0,
+      isPremimum: false
   });
 
   useEffect(()=>{
